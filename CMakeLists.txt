@@ -19,5 +19,5 @@ add_executable(hoge main.cpp)
 # target_link_libraries()
 
 target_compile_options(
-    rubiks_cube_solver PRIVATE $<$<CXX_COMPILER_ID:Clang>:-Wall -Weverything> $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra >
+    hoge PRIVATE $<$<CXX_COMPILER_ID:Clang>:-Wall -Weverything> $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra >
                                $<$<CXX_COMPILER_ID:MSVC>:/W4>)
