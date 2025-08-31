@@ -1,0 +1,173 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31
+    },
+    "configurePresets": [
+        {
+            "name": "default-debug",
+            "displayName": "Default debug Config",
+            "description": "Default debug configuration",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/default-debug",
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_COLOR_DIAGNOSTICS": "ON",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "default-release",
+            "displayName": "Default release Config",
+            "description": "Default release configuration",
+            "binaryDir": "${sourceDir}/build/default-release",
+            "inherits": "default-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+            }
+        },
+        {
+            "name": "linux-debug-clang",
+            "displayName": "Linux x64 Debug",
+            "description": "debug build for Linux x64 system",
+            "binaryDir": "${sourceDir}/build/linux-debug-clang",
+            "inherits": "default-debug",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++",
+            }
+        },
+        {
+            "name": "linux-release-clang",
+            "displayName": "Linux x64 Debug",
+            "description": "release build for Linux x64 system",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux-release-clang",
+            "inherits": "default-release",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++",
+            }
+        },
+        {
+            "name": "linux-debug-gcc",
+            "displayName": "Linux x64 Debug",
+            "description": "debug build for Linux x64 system",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux-debug-gcc",
+            "inherits": "default-debug",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++",
+            }
+        },
+        {
+            "name": "linux-release-gcc",
+            "displayName": "Linux x64 Debug",
+            "description": "release build for Linux x64 system",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux-release-gcc",
+            "inherits": "default-release",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++",
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "default-debug",
+            "configurePreset": "default-debug"
+        },
+        {
+            "name": "default-release",
+            "configurePreset": "default-release"
+        },
+        {
+            "name": "linux-debug-clang",
+            "configurePreset": "linux-debug-clang"
+        },
+        {
+            "name": "linux-release-clang",
+            "configurePreset": "linux-release-clang"
+        },
+        {
+            "name": "linux-debug-gcc",
+            "configurePreset": "linux-debug-gcc"
+        },
+        {
+            "name": "linux-release-gcc",
+            "configurePreset": "linux-release-gcc"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "default-debug-full",
+            "configurePreset": "default-debug",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "default-debug-inexpensive",
+            "configurePreset": "default-debug",
+            "inherits": "default-debug-full",
+            "filter": {
+                "include": {
+                    "label": "inexpensive"
+                }
+            }
+        },
+        {
+            "name": "default-release-full",
+            "configurePreset": "default-release",
+            "inherits": "default-debug-full"
+        },
+        {
+            "name": "default-release-inexpensive",
+            "configurePreset": "default-release",
+            "inherits": "default-debug-inexpensive"
+        },
+        {
+            "name": "linux-debug-clang-full",
+            "configurePreset": "linux-debug-clang",
+            "inherits": "default-debug-full"
+        },
+        {
+            "name": "linux-debug-clang-inexpensive",
+            "configurePreset": "linux-debug-clang",
+            "inherits": "default-debug-inexpensive"
+        },
+        {
+            "name": "linux-release-clang-full",
+            "configurePreset": "linux-release-clang",
+            "inherits": "default-debug-full"
+        },
+        {
+            "name": "linux-release-clang-inexpensive",
+            "configurePreset": "linux-release-clang",
+            "inherits": "default-debug-inexpensive"
+        },
+        {
+            "name": "linux-debug-gcc-full",
+            "configurePreset": "linux-debug-gcc",
+            "inherits": "default-debug-full"
+        },
+        {
+            "name": "linux-debug-gcc-inexpensive",
+            "configurePreset": "linux-debug-gcc",
+            "inherits": "default-debug-inexpensive"
+        },
+        {
+            "name": "linux-release-gcc-full",
+            "configurePreset": "linux-release-gcc",
+            "inherits": "default-debug-full"
+        },
+        {
+            "name": "linux-release-gcc-inexpensive",
+            "configurePreset": "linux-release-gcc",
+            "inherits": "default-debug-inexpensive"
+        }
+    ]
+}
