@@ -28,7 +28,7 @@
             "binaryDir": "${sourceDir}/build/default-release",
             "inherits": "default-debug",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
@@ -38,7 +38,7 @@
             "binaryDir": "${sourceDir}/build/linux-debug-clang",
             "inherits": "default-debug",
             "cacheVariables": {
-                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_CXX_COMPILER": "clang++"
             }
         },
         {
@@ -49,7 +49,7 @@
             "binaryDir": "${sourceDir}/build/linux-release-clang",
             "inherits": "default-release",
             "cacheVariables": {
-                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_CXX_COMPILER": "clang++"
             }
         },
         {
@@ -60,7 +60,7 @@
             "binaryDir": "${sourceDir}/build/linux-debug-gcc",
             "inherits": "default-debug",
             "cacheVariables": {
-                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_CXX_COMPILER": "g++"
             }
         },
         {
@@ -71,7 +71,7 @@
             "binaryDir": "${sourceDir}/build/linux-release-gcc",
             "inherits": "default-release",
             "cacheVariables": {
-                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_CXX_COMPILER": "g++"
             }
         }
     ],
