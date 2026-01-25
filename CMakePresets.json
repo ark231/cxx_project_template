@@ -10,7 +10,7 @@
             "displayName": "Default debug Config",
             "description": "Default debug configuration",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/default-debug",
+            "binaryDir": "${sourceDir}/build/${presetName}",
             "architecture": {
                 "value": "x64",
                 "strategy": "external"
@@ -25,7 +25,6 @@
             "name": "default-release",
             "displayName": "Default release Config",
             "description": "Default release configuration",
-            "binaryDir": "${sourceDir}/build/default-release",
             "inherits": "default-debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -35,7 +34,6 @@
             "name": "linux-debug-clang",
             "displayName": "Linux x64 Debug",
             "description": "debug build for Linux x64 system",
-            "binaryDir": "${sourceDir}/build/linux-debug-clang",
             "inherits": "default-debug",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "clang++"
@@ -46,7 +44,6 @@
             "displayName": "Linux x64 Debug",
             "description": "release build for Linux x64 system",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/linux-release-clang",
             "inherits": "default-release",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "clang++"
@@ -57,7 +54,6 @@
             "displayName": "Linux x64 Debug",
             "description": "debug build for Linux x64 system",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/linux-debug-gcc",
             "inherits": "default-debug",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "g++"
@@ -68,7 +64,6 @@
             "displayName": "Linux x64 Debug",
             "description": "release build for Linux x64 system",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/linux-release-gcc",
             "inherits": "default-release",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "g++"
@@ -107,6 +102,12 @@
             "configurePreset": "default-debug",
             "output": {
                 "outputOnFailure": true
+            },
+            "execution": {
+                "jobs": 0
+            },
+            "environment": {
+                "GTEST_COLOR": "yes"
             }
         },
         {
@@ -117,6 +118,12 @@
                 "include": {
                     "label": "inexpensive"
                 }
+            },
+            "execution": {
+                "jobs": 0
+            },
+            "environment": {
+                "GTEST_COLOR": "yes"
             }
         },
         {
